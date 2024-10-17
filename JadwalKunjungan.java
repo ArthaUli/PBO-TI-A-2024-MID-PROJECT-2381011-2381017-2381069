@@ -305,7 +305,7 @@ public class JadwalKunjungan {
                     lihatTipeKamar();
                     break;
                 case 9:
-                    cekKetersediaanRuangan();
+                    lihatKapasitasKamar();
                     break;
                 case 10:
                     lihatDaftarDokter();
