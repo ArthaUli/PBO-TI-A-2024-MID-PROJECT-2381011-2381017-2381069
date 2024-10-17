@@ -215,11 +215,15 @@ public class JadwalKunjungan {
     }
 
     // Fitur 9: Menampilkan kapasitas kamar
-    public static void kapasitasKamar() {
-        System.out.println("\nKapasitas Kamar Rumah Sakit:");
-        System.out.println("Total ruangan: " + totalRuangan);
-        System.out.println("Ruangan terpakai: " + ruanganTerpakai);
-        System.out.println("Ruangan tersedia: " + (totalRuangan - ruanganTerpakai));
+    public static void lihatKapasitasKamar() {
+        int kapasitasSederhana = 4;
+        int kapasitasStandar = 4;
+        int kapasitasVIP = 2;
+
+        System.out.println("\nKapasitas Kamar:");
+        System.out.println("Sederhana: " + kapasitasSederhana + " kamar");
+        System.out.println("Standar: " + kapasitasStandar + " kamar");
+        System.out.println("VIP: " + kapasitasVIP + " kamar");
     }
 
 
