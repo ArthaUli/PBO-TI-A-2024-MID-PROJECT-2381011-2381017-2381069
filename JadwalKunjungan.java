@@ -188,7 +188,6 @@ public class JadwalKunjungan {
         System.out.println("3. VIP");
     }
 
-    // Fitur 9: memilih tipe kamar
     public static String pilihTipeKamar() {
         String tipeKamar = null;
         while (true) {
@@ -214,6 +213,15 @@ public class JadwalKunjungan {
         }
         return tipeKamar;
     }
+
+    // Fitur 9: Menampilkan kapasitas kamar
+    public static void kapasitasKamar() {
+        System.out.println("\nKapasitas Kamar Rumah Sakit:");
+        System.out.println("Total ruangan: " + totalRuangan);
+        System.out.println("Ruangan terpakai: " + ruanganTerpakai);
+        System.out.println("Ruangan tersedia: " + (totalRuangan - ruanganTerpakai));
+    }
+
 
     // Fitur 10: melihat daftar dokter
     public static void lihatDaftarDokter() {
