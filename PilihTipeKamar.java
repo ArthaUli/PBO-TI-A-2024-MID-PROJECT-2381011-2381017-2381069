@@ -7,19 +7,19 @@ public class PilihTipeKamar {
         int umur;
         String alamat;
         String keluhan;
-        String tipeKamar;
+        String lihatTipeKamar;
 
         public Pasien(String nama, int umur, String alamat, String keluhan, String tipeKamar) {
             this.nama = nama;
             this.umur = umur;
             this.alamat = alamat;
             this.keluhan = keluhan;
-            this.tipeKamar = tipeKamar;
+            this.lihatTipeKamar = tipeKamar;
         }
 
         @Override
         public String toString() {
-            return "Nama: " + nama + ", Umur: " + umur + ", Alamat: " + alamat + ", Keluhan: " + keluhan + ", Tipe Kamar: " + tipeKamar;
+            return "Nama: " + nama + ", Umur: " + umur + ", Alamat: " + alamat + ", Keluhan: " + keluhan + ", Tipe Kamar: " + lihatTipeKamar;
         }
     }
 
@@ -35,16 +35,16 @@ public class PilihTipeKamar {
             String nama = scanner.nextLine();
             System.out.print("Masukkan umur pasien: ");
             int umur = scanner.nextInt();
-            scanner.nextLine(); // Bersihkan buffer
+            scanner.nextLine();
             System.out.print("Masukkan alamat pasien: ");
             String alamat = scanner.nextLine();
             System.out.print("Masukkan keluhan pasien: ");
             String keluhan = scanner.nextLine();
+            System.out.print("Masukkan pilihan Tipe Kamar (1/2/3): ");
 
             // Panggil fitur pilih tipe kamar
-            String tipeKamar = pilihTipeKamar();
+            String tipeKamar = pilihTipeKamar(); // Menggunakan pilihTipeKamar untuk memilih tipe kamar
 
-            // Tambahkan pasien baru
             daftarPasien.add(new Pasien(nama, umur, alamat, keluhan, tipeKamar));
             ruanganTerpakai++;
             System.out.println("Pasien berhasil didaftarkan dengan tipe kamar: " + tipeKamar);
@@ -154,30 +154,42 @@ public class PilihTipeKamar {
         }
     }
 
-    // Fitur 8: Pilih tipe kamar
+    // Fitur 8: Lihat tipe kamar (untuk menampilkan pilihan kamar)
+    public static void lihatTipeKamar() {
+        System.out.println("\nTipe Kamar yang Tersedia:");
+        System.out.println("1. Sederhana");
+        System.out.println("2. Standar");
+        System.out.println("3. VIP");
+    }
+
+    // Fitur memilih tipe kamar (untuk memilih saat pendaftaran pasien)
     public static String pilihTipeKamar() {
-        System.out.println("Pilih tipe kamar:");
-        System.out.println("1. VIP");
-        System.out.println("2. Kelas 1");
-        System.out.println("3. Kelas 2");
-        System.out.println("4. Kelas 3");
+        String tipeKamar = null;
+        while (true) {
+            System.out.println("\nPilih Tipe Kamar:");
+            System.out.println("1. Sederhana");
+            System.out.println("2. Standar");
+            System.out.println("3. VIP");
 
-        int pilihan = scanner.nextInt();
-        scanner.nextLine();
-
-        switch (pilihan) {
-            case 1:
-                return "VIP";
-            case 2:
-                return "Kelas 1";
-            case 3:
-                return "Kelas 2";
-            case 4:
-                return "Kelas 3";
-            default:
-                System.out.println("Pilihan tidak valid, secara default dipilih Kelas 3.");
-                return "Kelas 3";
+            int pilihan = scanner.nextInt();
+            scanner.nextLine();
+            switch (pilihan) {
+                case 1:
+                    tipeKamar = "Sederhana";
+                    break;
+                case 2:
+                    tipeKamar = "Standar";
+                    break;
+                case 3:
+                    tipeKamar = "VIP";
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid, silakan coba lagi.");
+                    continue;
+            }
+            break;
         }
+        return tipeKamar;
     }
 
     public static void main(String[] args) {
@@ -190,9 +202,9 @@ public class PilihTipeKamar {
             System.out.println("5. Hapus Data Pasien");
             System.out.println("6. Jumlah Pasien Terdaftar");
             System.out.println("7. Cek Ketersediaan Ruangan");
-            System.out.println("8. Pilih Tipe Kamar");
+            System.out.println("8. Lihat Tipe Kamar");
             System.out.println("9. Keluar");
-            System.out.print("Masukkan opsi ke-:");
+            System.out.print("Masukkan opsi ke-: ");
 
             int pilihan = scanner.nextInt();
             scanner.nextLine();
@@ -220,7 +232,7 @@ public class PilihTipeKamar {
                     cekKetersediaanRuangan();
                     break;
                 case 8:
-                    pilihTipeKamar();
+                    lihatTipeKamar();
                     break;
                 case 9:
                     System.out.println("Keluar dari program.");
