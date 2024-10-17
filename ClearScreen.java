@@ -18,7 +18,7 @@ public class ClearScreen {
         }
 
         @Override
-        public String toString() {
+        public String toString() { 
             return "Nama: " + nama + ", Umur: " + umur + ", Alamat: " + alamat + ", Keluhan: " + keluhan + ", Tipe Kamar: " + lihatTipeKamar;
         }
     }
